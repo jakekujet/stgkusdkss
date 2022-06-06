@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: dkss
+    dkcs.env: stg
+    generateName: dkss-deploy-67bf79dc47-
+    namespace: dkcs-local-ns
+spec:
+  affinity:
+  containers:
+  - envFrom:
+    - configMapRef:
+        name: dkss-cm
+    image: usdkcsdev.genesis.com/library/dkss:0.3.30.esbstg
+    imagePullPolicy: Always
+    name: dkss
+    ports:
+    - containerPort: 8080
